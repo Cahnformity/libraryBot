@@ -4,13 +4,20 @@
 import requests
 import json
 import re
-
+from dateutil.parser import parse
 #my_params = {"m": "calscroll", "gid": "445", "date": "2017-02-13"}
 # my_data = {"valueA": "keyA": "valueB": "keyB"}
 #my_headers = {"Referer": "http://calendar.library.ucsc.edu/booking/mch3",}
 #my_url = "http://calendar.library.ucsc.edu/process_roombookings.php"
 #response = requests.post(my_url, params=my_params, headers=my_headers).text
 #print (response)
+
+#input date as string, any format
+#return day of the week
+def get_weekday(date):
+    weekday = parse(date).weekday()
+    days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    return days[weekday]
 
 #input date and floor
 #returns the cryptic html blob with the id numbers
